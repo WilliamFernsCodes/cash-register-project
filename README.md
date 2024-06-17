@@ -23,7 +23,7 @@ This project was made with HTML, CSS, and JavaScript. Feel free to check the <a 
 3. JavaScript
 
 ## Project Motive:
-This is a certification project (meaning, I have to build it on my own) for <a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures-v8/" target="_blank">freeCodeCamp JavaScript Algorithms and Data Structures (Beta) Course. It is the second last certification project for the course.</a>.
+This is a certification project (meaning, I have to build it on my own) for <a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures-v8/" target="_blank">freeCodeCamp JavaScript Algorithms and Data Structures (Beta) Course</a>. It is the second last certification project for the course.</a>.
 
 ## Contributions:
 If you really like the Cash Register Project, and you see something you can improve, feel free to **fork** this repository, make your changes, and submit a pull request. If you see any spelling mistake on this markdown file, or on the website, please make an **issue**, so that I can fix it. Thanks. Recommendations on how I can improve it would be great.
