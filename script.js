@@ -4,6 +4,7 @@ const purchaseBtn = document.getElementById("purchase-btn");
 
 const totalPriceSpan = document.querySelector("#total-container span");
 const numpad = document.getElementById("numpad");
+const drawerChangeContainer = document.getElementById("drawer-change");
 
 let price = 1.87;
 let cid = [
@@ -18,18 +19,9 @@ let cid = [
   ["ONE HUNDRED", 100]
 ];
 
-totalPriceSpan.textContent = price;
-numpad.innerHTML = new Array(3).fill(1).map((item, index) => `
-  <div class="numpad-row">
-    <div class="numpad-btn"></div>
-    <div class="numpad-btn"></div>
-    <div class="numpad-btn"></div>
-  </div>
-`).join(" ");
-Array.from(document.getElementsByClassName("numpad-btn")).map((btn, index) => btn.textContent = index+1)
-
 const purchaseItem = () => {
   const cashInputValue = Number(cashInput.value);
+  console.log(`Cash Input Value: ${cashInputValue}`)
   if (cashInputValue < price) {
     alert("Customer does not have enough money to purchase the item")
   } else if (cashInputValue === price) {
@@ -40,8 +32,7 @@ const purchaseItem = () => {
       if (typeof changeItem[1] === "number") {
         changeItem[1] = `$${changeItem[1]}`
       }
-      return changeItem.join(": ")
-// "Status: OPEN TWENTY: $60 TEN: $20 FIVE: $15 ONE: $1 QUARTER: $0.5 DIME: $0.2 PENNY: $0.04"
+      return `<p>${changeItem.join(": ")}</p>`
     }).join(" ")
     updateChangeContent(changeHTML)
   }
@@ -51,14 +42,15 @@ const updateChangeContent = (html) => {
   changeOutputElement.innerHTML = html;
 }
 
-const calculateTotalCidChange = () => {
-  return Number(cid.map(item => item[1]).reduce((acc, currValue) => acc += currValue, 0).toFixed(2));
+const calculateTotalCidChange = (changeArray) => {
+  return Number(changeArray.map(item => item[1]).reduce((acc, currValue) => acc += currValue, 0).toFixed(2));
 }
 
 const calculateChange = (cashInputValue) => {
   let remainingChange = Number((cashInputValue - price).toFixed(2));
   let changeArray = []
-  while (remainingChange > 0 && calculateTotalCidChange() > 0) {
+  const cidCopy = JSON.parse(JSON.stringify(cid));
+  while (remainingChange > 0 && calculateTotalCidChange(cidCopy) > 0) {
     console.info("In while loop 1")
     for (let i = cid.length - 1; i >= 0; i--) {
       const changeType = cid[i];
@@ -98,7 +90,7 @@ const calculateChange = (cashInputValue) => {
 
       const changeToPush = [changeTypeName];
 
-      while (remainingChange >= changeNumber && cid[i][1] > 0) {
+      while (remainingChange >= changeNumber && cidCopy[i][1] > 0) {
         console.info("In while loop 2")
         remainingChange = Number((remainingChange - changeNumber).toFixed(2));
         if (changeToPush.length === 2) {
@@ -106,7 +98,7 @@ const calculateChange = (cashInputValue) => {
         } else {
           changeToPush.push(changeNumber)
         }
-        cid[i][1] = Number(cid[i][1] - changeNumber.toFixed(2));
+        cidCopy[i][1] = Number(cidCopy[i][1] - changeNumber.toFixed(2));
       }
       if (changeToPush.length === 2) {
         changeArray.push(changeToPush);
@@ -115,12 +107,35 @@ const calculateChange = (cashInputValue) => {
   }
   if (remainingChange > 0) {
     changeArray = [["Status", "INSUFFICIENT_FUNDS"]]
-  } else if (calculateTotalCidChange() > 0) {
+  } else if (calculateTotalCidChange(cidCopy) > 0) {
     changeArray.unshift(["Status", "OPEN"])
+    cid = cidCopy;
+    updateCidContent();
   } else {
+    cid = cidCopy;
     changeArray.unshift(["Status", "CLOSED"])
+    updateCidContent();
   }
   return changeArray;
 }
 
+const updateCidContent = () => {
+  drawerChangeContainer.innerHTML = cid.map(item => `<p>${item[0]}: <span>${item[1]}`).join(" ");
+}
+
 purchaseBtn.addEventListener("click", purchaseItem)
+
+totalPriceSpan.textContent = price;
+updateCidContent()
+
+for (let i = 0; i < 3; i++) {
+numpad.innerHTML += `
+  <div class="numpad-row">
+    <div class="numpad-btn"></div>
+    <div class="numpad-btn"></div>
+    <div class="numpad-btn"></div>
+  </div>
+  `
+}
+
+Array.from(document.getElementsByClassName("numpad-btn")).map((btn, index) => btn.textContent = index+1)
