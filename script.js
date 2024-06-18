@@ -138,4 +138,8 @@ numpad.innerHTML += `
   `
 }
 
-Array.from(document.getElementsByClassName("numpad-btn")).map((btn, index) => btn.textContent = index+1)
+const numpadButtons = Array.from(document.getElementsByClassName("numpad-btn"))
+numpadButtons.map((btn, index) => {
+  btn.textContent = index+1;
+  btn.addEventListener("click", () => cashInput.value += index+1);
+})
