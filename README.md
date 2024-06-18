@@ -1,13 +1,13 @@
 # Cash Register Project
 
-[![Cash Register Project](https://img.shields.io/badge/Cash_Register_Project-purple)](link_here)
+[![Cash Register Project](https://img.shields.io/badge/Cash_Register_Project-purple)](https://cash-register-project.vercel.app)
 ![Project Type](https://img.shields.io/badge/Project_Type:-Ceritification_Project-orange)
 ![HTML,CSS](https://img.shields.io/badge/HTML-CSS-blue)
 ![JavaScript](https://img.shields.io/badge/JavaScript-purple)
 [![freeCodeCamp](https://img.shields.io/badge/freeCodeCamp:_JavaScript_Algorithms_and_Data_Structures_(Beta)-red)](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures-v8/)
 
-![image 1](link_1_here)
-![image](link_2_here)
+![edited screenshot](./assets/github_screenshot.png)
+![website screenshot](./assets/website_screenshot.png)
 
 A simple cash register project. It handles the following cases:
 1. When you have enough money
@@ -15,7 +15,7 @@ A simple cash register project. It handles the following cases:
 3. When the register doesn't have enough money
 4. When the register is completely empty
 
-This project was made with HTML, CSS, and JavaScript. Feel free to check the <a href="link_here" target="_blank">website</a> out, and give feedback on what I can improve if you like.
+This project was made with HTML, CSS, and JavaScript. Feel free to check the <a href="https://cash-register-project.vercel.app" target="_blank">website</a> out, and give feedback on what I can improve if you like.
 
 ## Technologies:
 1. HTML
