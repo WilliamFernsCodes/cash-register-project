@@ -8,11 +8,9 @@
   </head>
   <body>
     <main>
-      <div class="top-section">
+      <div class="action-container">
         <h1>Simple Cash Register</h1>
         <div id="change-due"></div>
-      </div>
-      <div class="action-container">
         <label
           for="cash"
         >
@@ -25,33 +23,25 @@
           </p>
         </button>
       </div>
+
       <div class="cash-register">
         <div class="total-stander">
+          <div class="total-parent">
+            <div id="total-container" class="total-container">
+              <p>Total: <span></span></p>
+            </div>
+          </div>
           <div class="stander"></div>
-          <div class="total-container"></div>
         </div>
-        <div class="numpad">
-          <div class="numpad-row">
-            <div class="numpad-btn"></div>
-            <div class="numpad-btn"></div>
-            <div class="numpad-btn"></div>
+        <div class="cash-register-main">
+          <div id="numpad" class="numpad">
           </div>
-          <div class="numpad-row">
-            <div class="numpad-btn"></div>
-            <div class="numpad-btn"></div>
-            <div class="numpad-btn"></div>
-          </div>
-          <div class="numpad-row">
-            <div class="numpad-btn"></div>
-            <div class="numpad-btn"></div>
-            <div class="numpad-btn"></div>
+          <div class="drawer-change">
           </div>
         </div>
-        <div class="drawer-change">
+        <div class="cash-register-bottom">
+          <div class="cash-register-circle"></div>
         </div>
-      </div>
-      <div class="cash-register-bottom">
-        <div class="cash-register-circle"></div>
       </div>
     </main>
     <script src="./script.js"></script>

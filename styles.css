@@ -15,20 +15,27 @@ html {
 body {
   width: 100%;
   height: 100%;
-}
-
-main {
-  width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  background-color: orangered;
+  padding: 10px 15px;
+}
+
+main {
+  color: #fff;
+  width: 270px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: flex-end;
   flex-direction: column;
 }
 
-h1, p {
-  line-height: 115%;
+h1, p, label {
+  text-align: center;
+  line-height: 100%;
   vertical-align: middle;
 }
 
@@ -41,17 +48,8 @@ p, label {
   font-size: 1.5em;
 }
 
-.top-section {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-}
-
 #change-due {
-  display: none;
+  /* display: none; */
 }
 
 .action-container {
@@ -64,8 +62,7 @@ p, label {
 }
 
 #cash {
-  max-width: 300px;
-  min-width: 250px;
+  width: 100%;
   padding: 2.5px 15px;
   font-size: 1.5em;
 }
@@ -82,4 +79,87 @@ p, label {
 #purchase-btn p {
   font-size: 1.2em;
   font-weight: bold;
+}
+
+.cash-register {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.total-stander {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 50px;
+}
+
+.total-parent {
+  background-color: grey;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  position: relative;
+  left: -15px;
+}
+
+.total-container {
+  background-color: black;
+  width: 100%;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.total-container span {
+  font-weight: normal;
+}
+
+.stander {
+  width: 35px;
+  height: 50px;
+  background-color: grey;
+}
+
+.cash-register-main {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  background-color: grey;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: relative;
+}
+
+.numpad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  gap: 5px;
+}
+
+.numpad-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.numpad-btn {
+  background-color: black;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 3px;
 }

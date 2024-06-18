@@ -2,6 +2,9 @@ const cashInput = document.getElementById("cash");
 const changeOutputElement = document.getElementById("change-due");
 const purchaseBtn = document.getElementById("purchase-btn");
 
+const totalPriceSpan = document.querySelector("#total-container span");
+const numpad = document.getElementById("numpad");
+
 let price = 1.87;
 let cid = [
   ["PENNY", 1.01],
@@ -14,6 +17,16 @@ let cid = [
   ["TWENTY", 60],
   ["ONE HUNDRED", 100]
 ];
+
+totalPriceSpan.textContent = price;
+numpad.innerHTML = new Array(3).fill(1).map((item, index) => `
+  <div class="numpad-row">
+    <div class="numpad-btn"></div>
+    <div class="numpad-btn"></div>
+    <div class="numpad-btn"></div>
+  </div>
+`).join(" ");
+Array.from(document.getElementsByClassName("numpad-btn")).map((btn, index) => btn.textContent = index+1)
 
 const purchaseItem = () => {
   const cashInputValue = Number(cashInput.value);
